@@ -57,19 +57,29 @@ I'm always looking to grow, which is why I am currently a student in the 2-year 
 ### Live Projects
 
 
-#### Ticketcentral
+<a style="color: purple; height: 6px; " href="https://ticketcentral.cv" > Ticketcentral </a>
+
 
 <img width="1462" height="834" alt="Image" src="https://github.com/user-attachments/assets/233d11bc-12a5-4bb6-b3ca-309e352f2d45" />
 
 #### Purchase tickets securely with crypto or fiat payments. Discover events, manage bookings, and enjoy seamless transactions.
 
 
-#### Namestack
+---
+
+
+## Namestack
 
 <img width="1705" height="878" alt="Image" src="https://github.com/user-attachments/assets/81d8b628-3a74-4e01-906b-160f84af89e5" />
 
 #### AI-Powered Domain Intelligence. Harnessing the power of AI to optimize your domain investments, track performance, and discover valuable opportunities in the digital real estate market.
 
+
+---
+
+
+
+### Contact
 
 
 
