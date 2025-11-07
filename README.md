@@ -83,11 +83,11 @@ I'm always looking to grow, which is why I am currently a student in the 2-year 
 
 ### Contact
 
-<a href="https://www.linkedin.com/in/kosiso-ikezogwo/"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original-wordmark.svg" /> </a>
+<a href="https://www.linkedin.com/in/kosiso-ikezogwo/"> <img alt="java" width="30px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original-wordmark.svg"/> LinkedIn </a>
 
 <br/>
 
-<a href="https://kosiso.cv/">  <img src="https://img.icons8.com/?size=100&id=5zuVgEwv1rTz&format=png&color=000000"/></a>
+<a href="https://kosiso.cv/">  <img alt="java" width="30px" src="https://img.icons8.com/?size=100&id=5zuVgEwv1rTz&format=png&color=000000"/> Portfolio </a>
 
 
 
