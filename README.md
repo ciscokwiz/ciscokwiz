@@ -68,7 +68,8 @@ I'm always looking to grow, which is why I am currently a student in the 2-year 
 ---
 
 
-## Namestack
+<a style="color: purple; height: 6px; underlined: none; " href="https://github.com/namestackpro/namestack" > Namestack </a>
+
 
 <img width="1705" height="878" alt="Image" src="https://github.com/user-attachments/assets/81d8b628-3a74-4e01-906b-160f84af89e5" />
 
