@@ -36,6 +36,7 @@ I’m a passionate developer who loves building tools that make life easier and 
 <img align="left" alt="java" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" />
 <br/>
 
+
 ---
 
 ### My coding journey so far
@@ -68,7 +69,7 @@ I'm always looking to grow, which is why I am currently a student in the 2-year 
 ---
 
 
-<a style="color: purple; height: 6px; underlined: none; " href="https://github.com/namestackpro/namestack" > Namestack </a>
+<a style="color: purple; height: 6px; underlined: none;" href="https://github.com/namestackpro/namestack" > Namestack </a>
 
 
 <img width="1705" height="878" alt="Image" src="https://github.com/user-attachments/assets/81d8b628-3a74-4e01-906b-160f84af89e5" />
@@ -82,6 +83,11 @@ I'm always looking to grow, which is why I am currently a student in the 2-year 
 
 ### Contact
 
+<a href="https://www.linkedin.com/in/kosiso-ikezogwo/"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original-wordmark.svg" /> </a>
+
+<br/>
+
+<a href="https://kosiso.cv/">  <img src="https://img.icons8.com/?size=100&id=5zuVgEwv1rTz&format=png&color=000000"/></a>
 
 
 
