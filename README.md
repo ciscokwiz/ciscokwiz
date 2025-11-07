@@ -38,12 +38,20 @@ I’m a passionate developer who loves building tools that make life easier and 
 
 ---
 
+### My coding journey so far
+
+## My Path to Code
+
+My coding journey started in late 2024. I was driven by a desire to build, so I dove headfirst into self-learning with resources from Coursera and YouTube. For me, theory and practice go hand-in-hand, so I focused on two things: building my own personal projects and collaborating in the open. I connected with developers on Twitter and Reddit to contribute to open-source projects, which was an incredible way to learn in a real-world, collaborative environment.
+
+This hands-on experience paved the way for my first professional role at Payvite. As part of the frontend team, I had the great opportunity to work on a major project: revamping the company's webpage.
+
+After my time at Payvite, I briefly pursued an interest in Business Development, but my passion for development kept pulling me back. I used my spare time to sharpen my skills on passion projects. This led to one of my most exciting collaborations, Namestack, an AI-enabled domain management platform. I worked with a team to build a tool that gives domainers real-time data and control.
+
+I'm always looking to grow, which is why I am currently a student in the 2-year Learn 2 Earn coding bootcamp. I'm excited to be blending my practical, self-taught experience with a more formal, comprehensive education.
 
 
-
-
-
-
+---
 
 
 
