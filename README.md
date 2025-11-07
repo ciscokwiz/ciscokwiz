@@ -59,7 +59,7 @@ I'm always looking to grow, which is why I am currently a student in the 2-year 
 
 #### Ticketcentral
 
-<img alt="ticket" style="padding-right:10px;" width="1462" height="84" alt="Image" src="https://github.com/user-attachments/assets/233d11bc-12a5-4bb6-b3ca-309e352f2d45" />
+<img width="1462" height="834" alt="Image" src="https://github.com/user-attachments/assets/233d11bc-12a5-4bb6-b3ca-309e352f2d45" />
 
 ### Purchase tickets securely with crypto or fiat payments. Discover events, manage bookings, and enjoy seamless transactions.
 
