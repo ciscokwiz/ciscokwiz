@@ -1,3 +1,5 @@
+---
+
 ## Hi there 👋
 # I'm Kosiso Ikezogwo
 
@@ -6,14 +8,11 @@
 
 Here are some ideas to get you started:
 
-- 🔭 I’m currently working on ...
 - 🌱 I’m currently learning ...
 - 👯 I’m looking to collaborate on ...
 - 🤔 I’m looking for help with ...
 - 💬 Ask me about ...
-- 📫 How to reach me: ...
 - 😄 Pronouns: ...
-- ⚡ Fun fact: ...
 -->
 
 **` Frontend Engineer and Business Growth Associate `**
@@ -52,6 +51,11 @@ After my time at Payvite, I briefly pursued an interest in Business Development,
 I'm always looking to grow, which is why I am currently a student in the 2-year Learn 2 Earn coding bootcamp. I'm excited to be blending my practical, self-taught experience with a more formal, comprehensive education.
 
 
+## 🔭 I’m currently working on:
+
+**SARV** - AI enabled unified messaging platform for social media vendors and SMEs to handle communication, order management and customer service from on app instead of juggling multiple social media DMs
+
+
 ---
 
 
@@ -80,16 +84,23 @@ I'm always looking to grow, which is why I am currently a student in the 2-year 
 ---
 
 
-
 ### Contact
 
-<a href="https://www.linkedin.com/in/kosiso-ikezogwo/"> <img alt="java" width="60px" height="30px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" />  LinkedIn </a>
+#### 📫 How to reach me:
+
+<a href="https://www.linkedin.com/in/kosiso-ikezogwo/" gap="10px" text-align="center" > <img alt="java" width="60px" height="30px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" />  LinkedIn </a>
 
 <br/>
 
-<a href="https://kosiso.cv/" gap="10px">  <img alt="java" width="60px" height="30px" src="https://img.icons8.com/?size=100&id=5zuVgEwv1rTz&format=png&color=000000"/>  Portfolio </a>
+<a href="https://kosiso.cv/" gap="10px" text-align="center">  <img alt="java" width="60px" height="30px" src="https://img.icons8.com/?size=100&id=5zuVgEwv1rTz&format=png&color=000000"/>  Portfolio </a>
 
 
+---
+
+## ⚡ Fun fact:
+
+* I've streamed about 55-60% of Netflix Movie/Series Catalogue.
+* I hate Onion but i hate when my food doesn't have the onion taste.
 
 
 
