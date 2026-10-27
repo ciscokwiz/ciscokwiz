@@ -26,8 +26,10 @@ export function Nav() {
     <header className="nav">
       <div className="wrap nav-inner">
         <Link href="/" className="wordmark" aria-label={`${site.name}, home`} onClick={() => setOpen(false)}>
+          <span className="wordmark-bracket" aria-hidden="true">&lt;</span>
           {site.wordmark}
-          <span className="wordmark-dot" aria-hidden="true">.</span>
+          <span className="wordmark-bracket" aria-hidden="true">/&gt;</span>
+          <span className="wordmark-cursor" aria-hidden="true" />
         </Link>
         <nav aria-label="Main">
           <ul className="nav-links">

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Browser } from "@/components/Browser";
 import { caseVars } from "@/components/CaseFrame";
 import { ContactButton } from "@/components/ContactButton";
 import { getProject, projects } from "@/data/projects";
@@ -51,16 +52,13 @@ export default async function CaseStudy({ params }: Props) {
             )}
           </div>
           <div className="cs-shot">
-            <div className="shot">
-              <Image
-                src={`/work/${p.slug}-desk.webp`}
-                alt={`The home page of ${p.client}'s website`}
-                width={1440}
-                height={900}
-                sizes="(min-width: 1260px) 1200px, 94vw"
-                priority
-              />
-            </div>
+            <Browser
+              src={`/work/${p.slug}-desk.webp`}
+              url={p.url}
+              alt={`The home page of ${p.client}'s website`}
+              sizes="(min-width: 1260px) 1200px, 94vw"
+              priority
+            />
           </div>
         </div>
       </header>
@@ -69,12 +67,12 @@ export default async function CaseStudy({ params }: Props) {
         <div className="wrap cs-body">
           <div className="cs-cols">
             <section className="cs-block" aria-labelledby="brief">
-              <span className="label">The brief</span>
+              <span className="label"><b>01</b> The brief</span>
               <h2 id="brief">What they wanted</h2>
               <p className="lead">{p.brief}</p>
             </section>
             <section className="cs-block" aria-labelledby="built">
-              <span className="label">The build</span>
+              <span className="label"><b>02</b> The build</span>
               <h2 id="built">What I built</h2>
               <ul>
                 {p.built.map((b) => (
@@ -86,7 +84,7 @@ export default async function CaseStudy({ params }: Props) {
 
           <section className="cs-signature" aria-labelledby="signature">
             <span className="label" id="signature">
-              What makes it stand out
+              <b>03</b> What makes it stand out
             </span>
             <blockquote>{p.signature}</blockquote>
             <div className="swatches" aria-label={`${p.client} brand palette`}>
@@ -104,7 +102,7 @@ export default async function CaseStudy({ params }: Props) {
 
           <div className="cs-cols">
             <section className="cs-block" aria-labelledby="decisions">
-              <span className="label">Design decisions</span>
+              <span className="label"><b>04</b> Design decisions</span>
               <h2 id="decisions">Why it looks like this</h2>
               <ul>
                 {p.decisions.map((d) => (
@@ -113,7 +111,7 @@ export default async function CaseStudy({ params }: Props) {
               </ul>
             </section>
             <section className="cs-block" aria-labelledby="stack">
-              <span className="label">Under the hood</span>
+              <span className="label"><b>05</b> Under the hood</span>
               <h2 id="stack">Built with</h2>
               <p>{p.stack.join(", ")}</p>
             </section>

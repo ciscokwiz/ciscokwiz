@@ -12,8 +12,8 @@
     "check": "npm run typecheck && npm run contrast && npm run build"
   },
   "dependencies": {
-    "@fontsource-variable/schibsted-grotesk": "^5.2.0",
-    "@fontsource/instrument-serif": "^5.3.0",
+    "@fontsource-variable/jetbrains-mono": "^5.3.0",
+    "@fontsource-variable/space-grotesk": "^5.3.0",
     "@vercel/analytics": "^2.0.1",
     "next": "^16.3.8",
     "react": "^19.3.0",

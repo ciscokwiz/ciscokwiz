@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import type { Project } from "@/data/projects";
+import { Browser } from "./Browser";
 import { Chip } from "./Chip";
 
 export function caseVars(p: Project) {
@@ -22,16 +23,12 @@ export function CaseFrame({ project: p, priority = false }: { project: Project; 
         </div>
         <div className="case-shots">
           <Link href={href} tabIndex={-1} aria-hidden="true">
-            <div className="shot">
-              <Image
-                src={`/work/${p.slug}-desk.webp`}
-                alt=""
-                width={1440}
-                height={900}
-                sizes="(min-width: 1200px) 900px, 92vw"
-                priority={priority}
-              />
-            </div>
+            <Browser
+              src={`/work/${p.slug}-desk.webp`}
+              url={p.url}
+              sizes="(min-width: 1200px) 900px, 92vw"
+              priority={priority}
+            />
           </Link>
           <div className="shot-mob" aria-hidden="true">
             <Image src={`/work/${p.slug}-mob.webp`} alt="" width={390} height={844} sizes="210px" />

@@ -7,7 +7,7 @@ export function Footer() {
         <p>
           © {new Date().getFullYear()} {site.name}. Designed and built by me, like everything here.
         </p>
-        <p className="footer-links" style={{ display: "flex", gap: "24px", flexWrap: "wrap" }}>
+        <p className="footer-links">
           <a href={site.social.github} target="_blank" rel="noopener noreferrer">GitHub</a>
           <a href={site.social.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <span>Discord: {site.social.discord}</span>
