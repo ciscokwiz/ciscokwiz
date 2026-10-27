@@ -185,8 +185,8 @@ code, .mono { font-family: var(--font-mono); font-variant-ligatures: none; }
 @media (min-width: 1024px) { .hero-grid { grid-template-columns: 1.05fr 0.95fr; } }
 
 /* Code window */
-.code-window { background: var(--code-bg); border: 1px solid var(--line-strong); border-radius: var(--r-frame); overflow: hidden; font-family: var(--font-mono); font-size: 0.8125rem; line-height: 1.75; box-shadow: 0 24px 60px -30px rgba(0,0,0,.6); width: 100%; max-width: 560px; justify-self: center; }
-.code-bar { display: flex; align-items: center; gap: var(--s3); padding: 10px 14px; border-bottom: 1px solid var(--line); background: color-mix(in srgb, var(--code-bg) 70%, var(--surface)); }
+.code-window { position: relative; z-index: 1; background: rgba(35, 37, 40, 0.84); -webkit-backdrop-filter: blur(12px) saturate(1.15); backdrop-filter: blur(12px) saturate(1.15); border: 1px solid var(--line-strong); border-radius: var(--r-frame); overflow: hidden; font-family: var(--font-mono); font-size: 0.8125rem; line-height: 1.75; box-shadow: 0 24px 60px -30px rgba(0,0,0,.6); width: 100%; max-width: 560px; justify-self: center; }
+.code-bar { display: flex; align-items: center; gap: var(--s3); padding: 10px 14px; border-bottom: 1px solid var(--line); background: rgba(51, 54, 59, 0.55); }
 .dots { display: flex; gap: 6px; }
 .dots i { width: 10px; height: 10px; border-radius: 50%; background: var(--line-strong); display: block; }
 .code-tab { color: var(--ivory); font-size: 0.75rem; }
@@ -226,7 +226,7 @@ code, .mono { font-family: var(--font-mono); font-variant-ligatures: none; }
    ===================================================================== */
 .cases { display: grid; gap: clamp(32px, 5vw, 56px); }
 .case { border-radius: var(--r-frame); overflow: hidden; border: 1px solid var(--line); display: grid; }
-.case-stage { background: var(--stage); color: var(--case-ink); }
+.case-stage { background: var(--stage); color: var(--case-ink); overflow: hidden; }
 .case-top { padding: clamp(24px, 4vw, 44px) clamp(20px, 4vw, 44px) 0; display: grid; gap: var(--s3); }
 .case-top-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--s2) var(--s5); align-items: baseline; }
 .case-top h3 { color: inherit; font-size: var(--step-h2); line-height: 1.1; letter-spacing: -0.03em; }
@@ -368,13 +368,6 @@ code, .mono { font-family: var(--font-mono); font-variant-ligatures: none; }
 .next-case a { font-size: var(--step-h2); font-weight: 600; letter-spacing: -0.03em; color: var(--ivory); text-decoration: none; }
 .next-case a:hover { color: var(--brass); }
 
-/* One fade per case frame on first view; nothing else moves. */
-@media (prefers-reduced-motion: no-preference) {
-  @supports (animation-timeline: view()) {
-    .reveal { animation: rise linear both; animation-timeline: view(); animation-range: entry 0% entry 35%; }
-  }
-  @keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
-}
 
 /* Grid children may shrink below their content's width; long words wrap. */
 .cases, .case, .hero-grid, .about-grid, .cs-cols, .cs-gallery { grid-template-columns: minmax(0, 1fr); }
@@ -383,3 +376,62 @@ code, .mono { font-family: var(--font-mono); font-variant-ligatures: none; }
 @media (min-width: 900px) { .cs-cols { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } .cs-gallery { grid-template-columns: minmax(0, 2.4fr) minmax(0, 1fr); } }
 h1, h2, h3 { overflow-wrap: anywhere; }
 .code-window { min-width: 0; }
+
+/* =====================================================================
+   Motion layer
+   ===================================================================== */
+/* The WebGL grid sits behind everything. Until it loads (or if it can't),
+   the hero keeps its CSS grid. */
+.grid-canvas { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none; display: block; }
+html.has-grid .hero { background-image: none; }
+html.has-grid .hero::after { display: none; }
+
+/* 3D cube peeks out from behind the frosted code window. */
+.hero-visual { position: relative; display: grid; justify-items: center; }
+.brand-cube { position: absolute; z-index: 0; pointer-events: none; width: 95%; aspect-ratio: 1; top: -34%; right: -16%; transition: opacity .2s linear; }
+@media (max-width: 1023px) { .brand-cube { width: 58%; top: -17%; right: -2%; } }
+.hero { overflow-x: clip; }
+.hero-copy { position: relative; z-index: 2; }
+
+/* Brass reading-progress line along the bottom of the nav. */
+.scroll-progress { position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: var(--brass); transform: scaleX(0); transform-origin: left; pointer-events: none; }
+
+[data-parallax], [data-rise] { will-change: transform; }
+
+/* Reveals only apply once the effects script is running, so content is
+   never hidden from someone without JavaScript. */
+html.fx [data-reveal] {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity .7s ease, transform .8s cubic-bezier(.2, .7, .2, 1);
+  transition-delay: calc(min(var(--i, 0), 6) * 70ms);
+}
+html.fx [data-reveal].is-in { opacity: 1; transform: none; }
+
+/* Hero entrance on load: copy rises in order, the visual follows. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-copy > * { animation: rise-in .8s cubic-bezier(.2, .7, .2, 1) both; }
+  .hero-copy > :nth-child(2) { animation-delay: .08s; }
+  .hero-copy > :nth-child(3) { animation-delay: .16s; }
+  .hero-copy > :nth-child(4) { animation-delay: .24s; }
+  .hero-copy > :nth-child(5) { animation-delay: .32s; }
+  .hero-visual > .code-window { animation: rise-in 1s .3s cubic-bezier(.2, .7, .2, 1) both; }
+  .facts { animation: rise-in .9s .45s cubic-bezier(.2, .7, .2, 1) both; }
+  .hero-meta span { animation: fade-in .4s both; }
+  .hero-meta span:nth-child(1) { animation-delay: .7s; }
+  .hero-meta span:nth-child(2) { animation-delay: .85s; }
+  .hero-meta span:nth-child(3) { animation-delay: 1s; }
+  .term > span { animation: fade-in .3s both; }
+  .term > span:nth-child(1) { animation-delay: .9s; }
+  .term > span:nth-child(2) { animation-delay: 1.3s; }
+  .term > span:nth-child(3) { animation-delay: 1.6s; }
+  .term > span:nth-child(4) { animation-delay: 1.9s; }
+  .term > span:nth-child(5) { animation-delay: 2.3s; }
+}
+@keyframes rise-in { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+
+/* Cards lift a touch on hover. */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .card, .step { transition: border-color .2s ease, transform .25s ease; }
+  .card:hover, .step:hover { transform: translateY(-3px); border-color: var(--line-strong); }
+}

@@ -5,6 +5,8 @@ import "@fontsource-variable/jetbrains-mono/wght.css";
 import "./globals.css";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { Background } from "@/components/fx/Effects";
+import { ScrollFX } from "@/components/fx/ScrollFX";
 import { site } from "@/data/site";
 import { siteUrl } from "@/lib/site-url";
 
@@ -44,12 +46,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
+        <Background />
         <a className="skip" href="#main">
           Skip to content
         </a>
         <Nav />
         <main id="main">{children}</main>
         <Footer />
+        <ScrollFX />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personLd) }} />
         <Analytics />
       </body>
