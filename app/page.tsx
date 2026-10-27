@@ -239,12 +239,24 @@ export default function Home() {
           </p>
           <div className="btn-row">
             <ContactButton label="Start your website" />
-            <a className="btn btn-secondary" href={site.social.linkedin} target="_blank" rel="noopener noreferrer">
-              Connect on LinkedIn
-            </a>
+            {site.contact.email ? (
+              <a
+                className="btn btn-secondary"
+                href={`mailto:${site.contact.email}?subject=${encodeURIComponent("Website project")}`}
+              >
+                Email me
+              </a>
+            ) : (
+              <a className="btn btn-secondary" href={site.social.linkedin} target="_blank" rel="noopener noreferrer">
+                Connect on LinkedIn
+              </a>
+            )}
           </div>
           <div className="contact-alt">
             {site.contact.email && <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a>}
+            <a href={site.social.linkedin} target="_blank" rel="noopener noreferrer">
+              LinkedIn
+            </a>
             <a href={site.social.github} target="_blank" rel="noopener noreferrer">
               github.com/ciscokwiz
             </a>

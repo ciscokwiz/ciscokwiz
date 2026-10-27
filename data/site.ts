@@ -6,7 +6,9 @@
 
 export const site = {
   // The live address, no trailing slash. Used for Google and link previews.
-  url: "https://kosiso.cv",
+  // Leave as "" while the site lives on its Vercel address: Vercel tells the
+  // build its own production URL. Set this when a custom domain is added.
+  url: "",
 
   name: "Kosiso Ikezogwo",
   // The short name used for the wordmark in the nav.
@@ -22,9 +24,9 @@ export const site = {
     // WhatsApp number: digits only, country code first, no "+" or spaces,
     // e.g. "2348012345678". When set, every "Start a project" button opens
     // a WhatsApp chat with a message already written.
-    whatsapp: "",
+    whatsapp: "2349133103410",
     // Shown as a button in the contact section when set.
-    email: "",
+    email: "ikezogwokosiso16@gmail.com",
     // Message pre-filled in WhatsApp and in the email subject line.
     message: "Hi Kosiso, I saw your portfolio and I'd like a website for my business.",
   },

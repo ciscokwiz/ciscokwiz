@@ -29,4 +29,4 @@ npm run check    # typecheck + client colour contrast + production build
 1. https://vercel.com/new → import `ciscokwiz/ciscokwiz`.
 2. Framework: Next.js (detected). Root directory: `./`. No environment variables.
 3. Deploy. Every push to the production branch redeploys.
-4. Domain: Project → Settings → Domains → add `kosiso.cv` (or whichever domain you use), then set the same address as `url` in `data/site.ts`.
+4. Custom domain (optional): Project → Settings → Domains, then set the same address as `url` in `data/site.ts`. Until then the site uses its Vercel address automatically.

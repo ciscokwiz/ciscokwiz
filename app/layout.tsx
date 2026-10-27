@@ -7,9 +7,10 @@ import "./globals.css";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { site } from "@/data/site";
+import { siteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(site.url),
+  metadataBase: new URL(siteUrl()),
   title: {
     default: `${site.name} — Websites built exactly the way you see your brand`,
     template: `%s — ${site.name}`,
@@ -36,7 +37,7 @@ const personLd = {
   "@type": "Person",
   name: site.name,
   jobTitle: site.role,
-  url: site.url,
+  url: siteUrl(),
   sameAs: [site.social.github, site.social.linkedin],
 };
 
