@@ -54,8 +54,9 @@ export function CodeWindow() {
       <div className="term" aria-hidden="true">
         <span className="cmd">npm run build</span>
         <span className="ok">design approved by you</span>
-        <span className="ok">checked from 360px phones to desktop</span>
-        <span className="ok">fast on mobile data · ready for Google</span>
+        <span className="ok">checked on every screen</span>
+        <span className="ok">fast on mobile data</span>
+        <span className="ok">ready for Google</span>
         <span className="live">
           → live at <b>yourbusiness.com</b>
         </span>

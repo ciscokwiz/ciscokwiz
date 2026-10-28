@@ -386,10 +386,13 @@ h1, h2, h3 { overflow-wrap: anywhere; }
 html.has-grid .hero { background-image: none; }
 html.has-grid .hero::after { display: none; }
 
-/* 3D cube peeks out from behind the frosted code window. */
+/* The 3D phone stands in front of the code window: the code becomes the site. */
 .hero-visual { position: relative; display: grid; justify-items: center; }
-.brand-cube { position: absolute; z-index: 0; pointer-events: none; width: 70%; aspect-ratio: 1; top: -24%; right: -9%; }
-@media (prefers-reduced-motion: no-preference) { .brand-cube { animation: fade-in 1.6s .4s ease backwards; } }
+.hero-visual { padding-right: clamp(0px, 9vw, 120px); }
+.hero-phone { position: absolute; z-index: 2; pointer-events: none; width: 62%; aspect-ratio: 0.7; right: -16%; bottom: -30%; }
+@media (max-width: 1279px) { .hero-phone { width: 54%; right: -12%; bottom: -28%; } }
+@media (prefers-reduced-motion: no-preference) { .hero-phone { animation: rise-in 1.2s .5s cubic-bezier(.2, .7, .2, 1) backwards; } }
+@media (max-width: 759px) { .hero-visual { padding-right: 0; } }
 .hero { overflow-x: clip; }
 .hero-copy { position: relative; z-index: 2; }
 
@@ -425,7 +428,8 @@ html.fx [data-reveal].is-in { opacity: 1; transform: none; }
   .term > span:nth-child(2) { animation-delay: 1.3s; }
   .term > span:nth-child(3) { animation-delay: 1.6s; }
   .term > span:nth-child(4) { animation-delay: 1.9s; }
-  .term > span:nth-child(5) { animation-delay: 2.3s; }
+  .term > span:nth-child(5) { animation-delay: 2.2s; }
+  .term > span:nth-child(6) { animation-delay: 2.6s; }
 }
 @keyframes rise-in { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
 @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }

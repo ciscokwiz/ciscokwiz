@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { CaseFrame } from "@/components/CaseFrame";
 import { CodeWindow } from "@/components/CodeWindow";
-import { BrandCube } from "@/components/fx/Effects";
+import { HeroPhone } from "@/components/fx/Effects";
 import { ContactButton } from "@/components/ContactButton";
 import { journey, process, promises } from "@/data/journey";
 import { repos } from "@/data/opensource";
@@ -42,8 +42,8 @@ export default function Home() {
               </div>
             </div>
             <div className="hero-visual" data-parallax="-0.06">
-              <BrandCube />
               <CodeWindow />
+              <HeroPhone />
             </div>
           </div>
 
