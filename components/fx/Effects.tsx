@@ -25,6 +25,16 @@ export function Background() {
   return <GridCanvas glow={useGlow()} />;
 }
 
+/** Desktop only: on phones the hero stays clean and nothing extra renders. */
 export function BrandCube() {
-  return <BrandCubeLazy glow={GLOW_HEX[useGlow()]} />;
+  const glow = useGlow();
+  const [wide, setWide] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const update = () => setWide(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+  return wide ? <BrandCubeLazy glow={GLOW_HEX[glow]} /> : null;
 }

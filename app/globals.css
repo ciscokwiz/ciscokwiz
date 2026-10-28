@@ -388,8 +388,8 @@ html.has-grid .hero::after { display: none; }
 
 /* 3D cube peeks out from behind the frosted code window. */
 .hero-visual { position: relative; display: grid; justify-items: center; }
-.brand-cube { position: absolute; z-index: 0; pointer-events: none; width: 95%; aspect-ratio: 1; top: -34%; right: -16%; transition: opacity .2s linear; }
-@media (max-width: 1023px) { .brand-cube { width: 58%; top: -17%; right: -2%; } }
+.brand-cube { position: absolute; z-index: 0; pointer-events: none; width: 70%; aspect-ratio: 1; top: -24%; right: -9%; }
+@media (prefers-reduced-motion: no-preference) { .brand-cube { animation: fade-in 1.6s .4s ease backwards; } }
 .hero { overflow-x: clip; }
 .hero-copy { position: relative; z-index: 2; }
 
