@@ -4,7 +4,10 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   images: {
-    formats: ["image/avif", "image/webp"],
+    // Screenshots are already compressed WebP (11–49KB). Serving them as-is
+    // from the CDN is instant and never hits the image-optimisation quota,
+    // which is what left case-study images blank on first view.
+    unoptimized: true,
   },
   async headers() {
     return [
