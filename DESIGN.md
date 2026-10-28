@@ -82,6 +82,14 @@ Headings use `text-wrap: balance`. Semantic level and visual size are independen
 - **Step**: Slate card, `step_01` in brass mono (a real sequence), h3, two-line text.
 - **Repo row**: name, one sentence, language; hairlines between rows; whole row is the link.
 
+## Motion
+Three.js, loaded lazily (`next/dynamic`, `ssr: false`) so it never blocks the first paint. Everything pauses when the tab is hidden, and under `prefers-reduced-motion` the scene renders once and stays still.
+
+- **Living grid (site-wide background):** a full-screen shader draws the 48px blueprint grid. Around the pointer: a soft lens enlarges the cells by up to ~16% within ~170px, the lines brighten and take the glow colour, and a glow (radius ~300px) sits behind them. The glow eases after the cursor rather than snapping to it. With a mouse it stays under the cursor; on touch it follows the finger briefly, then drifts on its own. Two faint colour clouds (blue `#6F8FD6` top right, brass bottom left) drift slowly so the page isn't flat grey. The grid scrolls at 35% of page speed for depth.
+- **Glow colour:** light blue `#8FB2F5` (default) or brass, set by `glow` in `data/site.ts`; `?glow=brass` or `?glow=blue` previews the other. Blue is the default because brass already means "you can click this"; a brass glow competes with the buttons and warms the page toward brown.
+- **Scroll:** sections, cards, steps, repo rows and timeline items fade up as they enter (staggered 70ms, capped at 6); the hero copy, code window and terminal lines play in order on load; client screenshots rise into their frames (desktop 36px, phone 90px); the hero visual moves at a slightly different speed; the fact numbers count up; a 2px brass progress line runs along the bottom of the nav.
+- **Hover:** cards and steps lift 3px.
+
 ## Do / Don't
 - Do use brass only for actions, labels and the one italic phrase in a headline.
 - Do let client colours appear only inside that client's frame or case page header.
@@ -90,7 +98,7 @@ Headings use `text-wrap: balance`. Semantic level and visual size are independen
 - Don't add a second accent colour, gradients or glows.
 - Don't round anything past 14px, and never use pill buttons.
 - Don't use skill bars, star ratings or invented testimonials.
-- Don't animate beyond one fade per case frame; respect reduced motion.
+- Don't add motion outside the system above; every effect must respect reduced motion and pause off-screen.
 
 ## Imagery
 Real screenshots of the five client sites at 1440×900 and 390×844, compressed WebP (11–49KB each), shown in browser frames. Tech graphics are built in HTML/CSS, not images: the blueprint grid, the code window, the terminal. No stock photography, no illustrations, no device renders.

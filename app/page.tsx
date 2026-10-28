@@ -40,12 +40,14 @@ export default function Home() {
                 <span>Enquiries to your WhatsApp</span>
               </div>
             </div>
-            <CodeWindow />
+            <div className="hero-visual" data-parallax="-0.06">
+              <CodeWindow />
+            </div>
           </div>
 
           <div className="facts">
             <div className="fact">
-              <strong>{String(projects.length).padStart(2, "0")}</strong>
+              <strong data-count={projects.length}>{String(projects.length).padStart(2, "0")}</strong>
               <span>client brands launched</span>
             </div>
             <div className="fact">
@@ -53,7 +55,7 @@ export default function Home() {
               <span>templates used</span>
             </div>
             <div className="fact">
-              <strong>{String(builtRepos.length).padStart(2, "0")}</strong>
+              <strong data-count={builtRepos.length}>{String(builtRepos.length).padStart(2, "0")}</strong>
               <span>open-source projects shipped</span>
             </div>
           </div>
@@ -63,7 +65,7 @@ export default function Home() {
       {/* Work ------------------------------------------------------------ */}
       <section className="section" id="work" aria-labelledby="work-title">
         <div className="wrap">
-          <div className="section-head">
+          <div className="section-head" data-reveal>
             <span className="label">
               <b>01</b> Selected work
             </span>
@@ -86,7 +88,7 @@ export default function Home() {
       {/* Process --------------------------------------------------------- */}
       <section className="section" id="process" aria-labelledby="process-title">
         <div className="wrap">
-          <div className="section-head">
+          <div className="section-head" data-reveal>
             <span className="label">
               <b>02</b> How it works
             </span>
@@ -98,7 +100,7 @@ export default function Home() {
               built to be found, to load fast on mobile data and to turn visitors into enquiries.
             </p>
           </div>
-          <ol className="steps">
+          <ol className="steps" data-reveal-stagger>
             {process.map((s, i) => (
               <li className="step" key={s.title}>
                 <span className="step-num">step_{String(i + 1).padStart(2, "0")}</span>
@@ -112,7 +114,7 @@ export default function Home() {
               <h2>What you get</h2>
               <p className="muted">Every project, whatever the size.</p>
             </div>
-            <ul>
+            <ul data-reveal-stagger>
               {promises.map((p) => (
                 <li key={p}>{p}</li>
               ))}
@@ -124,14 +126,14 @@ export default function Home() {
       {/* Products -------------------------------------------------------- */}
       <section className="section" id="products" aria-labelledby="products-title">
         <div className="wrap">
-          <div className="section-head">
+          <div className="section-head" data-reveal>
             <span className="label">
               <b>03</b> Products
             </span>
             <h2 id="products-title">Beyond client sites.</h2>
             <p className="lead">Products I&rsquo;ve built or maintain, from domain trading to small-business finance.</p>
           </div>
-          <div className="grid-cards">
+          <div className="grid-cards" data-reveal-stagger>
             {products.map((p) => (
               <article className="card" key={p.name}>
                 <div className="card-head">
@@ -158,7 +160,7 @@ export default function Home() {
       {/* Open source ----------------------------------------------------- */}
       <section className="section" id="open-source" aria-labelledby="os-title">
         <div className="wrap">
-          <div className="section-head">
+          <div className="section-head" data-reveal>
             <span className="label">
               <b>04</b> Open source
             </span>
@@ -170,7 +172,7 @@ export default function Home() {
               written for other developers to build on. The same care goes into every client site.
             </p>
           </div>
-          <ul className="repos">
+          <ul className="repos" data-reveal-stagger>
             {repos.map((r) => (
               <li className="repo" key={r.name}>
                 <a href={r.url} target="_blank" rel="noopener noreferrer">
@@ -187,7 +189,7 @@ export default function Home() {
       {/* About ----------------------------------------------------------- */}
       <section className="section" id="about" aria-labelledby="about-title">
         <div className="wrap about-grid">
-          <div className="about-intro">
+          <div className="about-intro" data-reveal>
             <span className="label">
               <b>05</b> About
             </span>
@@ -204,7 +206,7 @@ export default function Home() {
               onions but won&rsquo;t eat food that doesn&rsquo;t taste like them.
             </p>
           </div>
-          <ol className="timeline" aria-label="My journey">
+          <ol className="timeline" aria-label="My journey" data-reveal-stagger>
             {journey.map((j) => (
               <li key={j.title}>
                 <span className="when">{j.when}</span>
@@ -221,7 +223,7 @@ export default function Home() {
       {/* Contact --------------------------------------------------------- */}
       <section className="section" id="contact" aria-labelledby="contact-title">
         <div className="wrap">
-          <div className="contact-panel">
+          <div className="contact-panel" data-reveal>
             <span className="label">
               <b>06</b> Let&rsquo;s talk
             </span>

@@ -37,6 +37,11 @@ export const site = {
     discord: "ciscokwiz",
   },
 
+  // Colour of the glow that follows the pointer across the background grid:
+  // "blue" or "brass". Preview the other one by adding ?glow=brass (or
+  // ?glow=blue) to the address.
+  glow: "blue" as "blue" | "brass",
+
   // What you're building right now. Shown in the hero.
   currently: "SARV, an AI inbox that lets social-media vendors handle DMs, orders and customer service from one app",
 };

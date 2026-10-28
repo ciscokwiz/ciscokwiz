@@ -24,6 +24,7 @@ export function Nav() {
 
   return (
     <header className="nav">
+      <span className="scroll-progress" aria-hidden="true" />
       <div className="wrap nav-inner">
         <Link href="/" className="wordmark" aria-label={`${site.name}, home`} onClick={() => setOpen(false)}>
           <span className="wordmark-bracket" aria-hidden="true">&lt;</span>

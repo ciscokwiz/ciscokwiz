@@ -12,7 +12,7 @@ export function caseVars(p: Project) {
 export function CaseFrame({ project: p, priority = false }: { project: Project; priority?: boolean }) {
   const href = `/work/${p.slug}`;
   return (
-    <article className="case reveal" style={caseVars(p)} aria-labelledby={`case-${p.slug}`}>
+    <article className="case" data-reveal style={caseVars(p)} aria-labelledby={`case-${p.slug}`}>
       <div className="case-stage">
         <div className="case-top">
           <div className="case-top-row">
@@ -22,7 +22,7 @@ export function CaseFrame({ project: p, priority = false }: { project: Project; 
           <p className="case-summary">{p.summary}</p>
         </div>
         <div className="case-shots">
-          <Link href={href} tabIndex={-1} aria-hidden="true">
+          <Link href={href} tabIndex={-1} aria-hidden="true" data-rise="36">
             <Browser
               src={`/work/${p.slug}-desk.webp`}
               url={p.url}
@@ -30,7 +30,7 @@ export function CaseFrame({ project: p, priority = false }: { project: Project; 
               priority={priority}
             />
           </Link>
-          <div className="shot-mob" aria-hidden="true">
+          <div className="shot-mob" aria-hidden="true" data-rise="90">
             <Image src={`/work/${p.slug}-mob.webp`} alt="" width={390} height={844} sizes="210px" />
           </div>
         </div>
