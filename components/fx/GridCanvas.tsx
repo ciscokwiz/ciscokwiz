@@ -14,6 +14,13 @@ const GLOWS = {
 } as const;
 export type GlowName = keyof typeof GLOWS;
 
+/* Colours per theme. Light mode deepens the glow so it still reads on paper. */
+const THEMES = {
+  dark: { base: "#2b2d31", line: "#f1efea", glow: GLOWS, cloudA: "#6f8fd6", cloudB: "#d1ad66" },
+  light: { base: "#f0efeb", line: "#1c1d20", glow: { brass: "#b08a3e", blue: "#4a78e0" }, cloudA: "#7f9be0", cloudB: "#d9b56c" },
+} as const;
+const currentTheme = () => (document.documentElement.dataset.theme === "light" ? "light" : "dark");
+
 // The shader writes straight to the screen, so colours stay as authored
 // (sRGB) instead of being converted to three's linear working space.
 const raw = (hex: string) => new THREE.Color().setStyle(hex, THREE.LinearSRGBColorSpace);
@@ -66,10 +73,12 @@ const fragment = /* glsl */ `
     float cloudA = exp(-dot((uv - ca) * vec2(aspect, 1.0), (uv - ca) * vec2(aspect, 1.0)) / 0.18);
     float cloudB = exp(-dot((uv - cb) * vec2(aspect, 1.0), (uv - cb) * vec2(aspect, 1.0)) / 0.22);
 
+    // Tint toward each colour (rather than add light) so it works on a dark
+    // or a light base.
     vec3 col = uBase;
-    col += uCloudA * cloudA * 0.07;
-    col += uCloudB * cloudB * 0.055;
-    col += uGlow * glow * 0.14;
+    col = mix(col, uCloudA, cloudA * 0.08);
+    col = mix(col, uCloudB, cloudB * 0.065);
+    col = mix(col, uGlow, glow * 0.14);
 
     float lineAlpha = 0.055 + near * 0.38 + glow * 0.08;
     vec3 lineCol = mix(uLine, uGlow, clamp(near * 1.4, 0.0, 1.0));
@@ -113,6 +122,21 @@ export default function GridCanvas({ glow }: { glow: GlowName }) {
       uCloudA: { value: raw("#6f8fd6") },
       uCloudB: { value: raw("#d1ad66") },
     };
+    const applyTheme = () => {
+      const t = THEMES[currentTheme()];
+      uniforms.uBase.value = raw(t.base);
+      uniforms.uLine.value = raw(t.line);
+      uniforms.uGlow.value = raw(t.glow[glow]);
+      uniforms.uCloudA.value = raw(t.cloudA);
+      uniforms.uCloudB.value = raw(t.cloudB);
+    };
+    applyTheme();
+    // Follow the theme toggle live.
+    const themeWatch = new MutationObserver(() => {
+      applyTheme();
+      if (reduce) draw(performance.now());
+    });
+    themeWatch.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
     const material = new THREE.ShaderMaterial({ vertexShader: vertex, fragmentShader: fragment, uniforms });
     const mesh = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), material);
     scene.add(mesh);
@@ -193,6 +217,7 @@ export default function GridCanvas({ glow }: { glow: GlowName }) {
 
     return () => {
       cancelAnimationFrame(raf);
+      themeWatch.disconnect();
       window.removeEventListener("pointermove", onMove);
       window.removeEventListener("pointerdown", onMove);
       document.documentElement.removeEventListener("pointerleave", onLeave);

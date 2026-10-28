@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { site } from "@/data/site";
 import { ContactButton } from "./ContactButton";
+import { ThemeToggle } from "./ThemeToggle";
 
 const links = [
   { href: "/#work", label: "Work" },
@@ -42,6 +43,7 @@ export function Nav() {
           </ul>
         </nav>
         <div className="nav-actions">
+          <ThemeToggle />
           <span className="nav-cta">
             <ContactButton label="Start your website" />
           </span>

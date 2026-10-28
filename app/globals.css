@@ -13,10 +13,13 @@
   --ivory: #f1efea;
   --body: #ccc9c2;
   --muted: #aeaba4;
-  --brass: #d1ad66;
+  --brass: #d1ad66;       /* brass as text and lines */
   --brass-hi: #ddbe80;
+  --brass-fill: #d1ad66;  /* brass as a surface: buttons, cursor, progress */
+  --brass-fill-hi: #ddbe80;
   --on-brass: #1f2124;
   --ok: #8fbf8a;
+  --swatch-edge: rgba(255, 255, 255, 0.3);
 
   /* Type: Space Grotesk carries everything readable; JetBrains Mono carries
      labels, numbers and code. Base 16px, major third (1.25). */
@@ -44,6 +47,37 @@
   color-scheme: dark;
 }
 @media (min-width: 768px) { :root { --gutter: 32px; } }
+
+/* Light mode: warm paper and ink, brass deepened wherever it's text. */
+:root[data-theme="light"] {
+  --canvas: #f0efeb;
+  --surface: #ffffff;
+  --raised: #e6e4df;
+  --line: #d9d7d1;
+  --line-strong: #bdbab3;
+  --grid: rgba(28, 29, 32, 0.06);
+  --ivory: #1c1d20;   /* headline role */
+  --body: #3e4147;
+  --muted: #62656c;
+  --brass: #7d5e24;
+  --brass-hi: #5f4618;
+  --ok: #3f7d3a;
+  --swatch-edge: rgba(0, 0, 0, 0.18);
+  color-scheme: light;
+}
+
+/* The code window and browser bars stay dark in both themes: an editor. */
+.code-window, .browser-bar {
+  --surface: #33363b;
+  --line: #43464d;
+  --line-strong: #565961;
+  --ivory: #f1efea;
+  --body: #ccc9c2;
+  --muted: #aeaba4;
+  --brass: #d1ad66;
+  --ok: #8fbf8a;
+  --swatch-edge: rgba(255, 255, 255, 0.3);
+}
 
 /* Arial tuned to Space Grotesk's metrics, so nothing jumps when it loads. */
 @font-face {
@@ -83,7 +117,7 @@ img { max-width: 100%; height: auto; display: block; }
 a { color: var(--brass); text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
 a:hover { color: var(--brass-hi); }
 :focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; border-radius: 2px; }
-::selection { background: var(--brass); color: var(--on-brass); }
+::selection { background: var(--brass-fill); color: var(--on-brass); }
 code, .mono { font-family: var(--font-mono); font-variant-ligatures: none; }
 
 .wrap { width: 100%; max-width: calc(var(--max) + 2 * var(--gutter)); margin-inline: auto; padding-inline: var(--gutter); }
@@ -92,7 +126,7 @@ code, .mono { font-family: var(--font-mono); font-variant-ligatures: none; }
 .lead { font-size: var(--step-lead); line-height: 1.55; color: var(--body); max-width: 60ch; }
 .muted { color: var(--muted); }
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-.skip { position: absolute; left: var(--s4); top: -100px; z-index: 100; background: var(--brass); color: var(--on-brass); padding: var(--s3) var(--s4); border-radius: var(--r-btn); }
+.skip { position: absolute; left: var(--s4); top: -100px; z-index: 100; background: var(--brass-fill); color: var(--on-brass); padding: var(--s3) var(--s4); border-radius: var(--r-btn); }
 .skip:focus { top: var(--s3); }
 
 /* Section label: "01 / work" in mono, brass index, tracked caps. */
@@ -113,8 +147,8 @@ code, .mono { font-family: var(--font-mono); font-variant-ligatures: none; }
   font: 500 var(--step-0)/1 var(--font-sans); text-decoration: none; cursor: pointer;
   border: 1px solid transparent; transition: background-color .15s ease, color .15s ease, border-color .15s ease;
 }
-.btn-primary { background: var(--brass); color: var(--on-brass); font-weight: 600; }
-.btn-primary:hover { background: var(--brass-hi); color: var(--on-brass); }
+.btn-primary { background: var(--brass-fill); color: var(--on-brass); font-weight: 600; }
+.btn-primary:hover { background: var(--brass-fill-hi); color: var(--on-brass); }
 .btn-secondary { background: transparent; color: var(--ivory); border-color: var(--line-strong); }
 .btn-secondary:hover { border-color: var(--ivory); color: var(--ivory); }
 .btn-row { display: flex; flex-wrap: wrap; gap: var(--s3); }
@@ -128,7 +162,7 @@ code, .mono { font-family: var(--font-mono); font-variant-ligatures: none; }
   background: var(--raised); border: 1px solid var(--line); color: var(--body);
   font-family: var(--font-mono); font-size: 0.75rem; font-weight: 400; line-height: 1.4; white-space: nowrap;
 }
-.chip-dot { width: 16px; height: 16px; border-radius: 3px; flex: none; box-shadow: inset 0 0 0 1px rgba(255,255,255,.3); }
+.chip-dot { width: 16px; height: 16px; border-radius: 3px; flex: none; box-shadow: inset 0 0 0 1px var(--swatch-edge); }
 .chip-row { display: flex; flex-wrap: wrap; gap: var(--s2); }
 
 /* =====================================================================
@@ -144,7 +178,7 @@ code, .mono { font-family: var(--font-mono); font-variant-ligatures: none; }
 .wordmark { display: inline-flex; align-items: center; gap: 2px; color: var(--ivory); text-decoration: none; font-family: var(--font-mono); font-size: 1.125rem; font-weight: 600; letter-spacing: -0.01em; }
 .wordmark:hover { color: var(--ivory); }
 .wordmark-bracket { color: var(--brass); font-weight: 400; }
-.wordmark-cursor { width: 9px; height: 1.1em; background: var(--brass); margin-left: 3px; }
+.wordmark-cursor { width: 9px; height: 1.1em; background: var(--brass-fill); margin-left: 3px; }
 @media (prefers-reduced-motion: no-preference) { .wordmark-cursor { animation: blink 1.1s steps(1) infinite; } }
 @keyframes blink { 50% { opacity: 0; } }
 .nav-links { display: none; align-items: center; gap: var(--s6); list-style: none; margin: 0; padding: 0; }
@@ -199,7 +233,7 @@ code, .mono { font-family: var(--font-mono); font-variant-ligatures: none; }
 .tk-k { color: var(--muted); }
 .tk-p { color: var(--ivory); }
 .tk-s { color: var(--brass); }
-.tk-sw { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 4px; vertical-align: -1px; box-shadow: inset 0 0 0 1px rgba(255,255,255,.3); }
+.tk-sw { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 4px; vertical-align: -1px; box-shadow: inset 0 0 0 1px var(--swatch-edge); }
 .term { border-top: 1px solid var(--line); padding: var(--s3) var(--s4) var(--s4); display: grid; gap: 2px; color: var(--muted); }
 .term .cmd { color: var(--ivory); }
 .term .cmd::before { content: "$ "; color: var(--brass); }
@@ -391,7 +425,7 @@ html.has-grid .hero::after { display: none; }
 .hero-copy { position: relative; z-index: 2; }
 
 /* Brass reading-progress line along the bottom of the nav. */
-.scroll-progress { position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: var(--brass); transform: scaleX(0); transform-origin: left; pointer-events: none; }
+.scroll-progress { position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: var(--brass-fill); transform: scaleX(0); transform-origin: left; pointer-events: none; }
 
 [data-parallax], [data-rise] { will-change: transform; }
 
@@ -433,3 +467,20 @@ html.fx [data-reveal][data-armed]:not(.is-in) { opacity: 0; transform: translate
   .card, .step { transition: border-color .2s ease, transform .25s ease; }
   .card:hover, .step:hover { transform: translateY(-3px); border-color: var(--line-strong); }
 }
+
+/* Theme toggle in the nav. */
+.theme-toggle {
+  display: inline-grid; place-items: center; width: 40px; height: 40px; padding: 0;
+  background: transparent; border: 1px solid var(--line-strong); border-radius: var(--r-btn);
+  color: var(--ivory); cursor: pointer; transition: border-color .15s ease, color .15s ease;
+}
+.theme-toggle:hover { border-color: var(--ivory); }
+.theme-toggle svg { width: 18px; height: 18px; }
+.theme-toggle .icon-to-dark { display: none; }
+:root[data-theme="light"] .theme-toggle .icon-to-dark { display: block; }
+:root[data-theme="light"] .theme-toggle .icon-to-light { display: none; }
+/* A short cross-fade when the theme changes, not on first paint. */
+html.theme-anim, html.theme-anim *, html.theme-anim *::before, html.theme-anim *::after {
+  transition: background-color .35s ease, color .35s ease, border-color .35s ease !important;
+}
+:root[data-theme="light"] .code-window { background: rgba(35, 37, 40, 0.96); box-shadow: 0 24px 60px -30px rgba(0, 0, 0, 0.35); }

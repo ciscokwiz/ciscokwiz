@@ -16,6 +16,8 @@ The portfolio (Next.js 16) lives in this repo next to the GitHub profile `README
 
 The glow that follows the mouse across the background grid is set by `glow` in `data/site.ts` (`"blue"` or `"brass"`). Add `?glow=brass` or `?glow=blue` to the address to preview the other one before changing it.
 
+Light and dark mode: visitors switch with the sun/moon button in the nav, and their choice is remembered on their device. Dark is the default. Colours for both live at the top of `app/globals.css` (`:root` for dark, `:root[data-theme="light"]` for light).
+
 Set `contact.whatsapp` in `data/site.ts` (digits only, e.g. `2348012345678`) and every "Start your website" button opens a WhatsApp chat with a message already written. Without it, they fall back to email, then LinkedIn.
 
 ## Run it

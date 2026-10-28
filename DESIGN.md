@@ -1,7 +1,7 @@
 # Kosiso Ikezogwo — Style Reference
 > A graphite studio wall with other people's brand swatches pinned to it, lit by one brass lamp.
 
-**Theme:** dark (lifted graphite, never black). One theme, on purpose: simpler, and it lets client colours glow.
+**Theme:** dual. Dark (lifted graphite, never black) is the default and the brand look; a toggle in the nav switches to a warm-paper light mode, remembered per visitor. The code window and browser bars stay dark in both, like an editor.
 **Lineage:** Fintech-minimal restraint for Kosiso's own frame, because a business owner hiring a developer is making a trust decision, and quiet confidence reads as competence. Each case-study frame then carries its client's *own* lineage (entertainment for Theo and The Corporate Emcee, streetwear for Kinta & Co., playful retail for Drip Bunny), so the work does the showing off.
 
 **The message, everywhere:** *I build your brand exactly the way you see it, and I make it stand out online.* Every headline, section and button is written to prove one half of that sentence.
@@ -41,6 +41,21 @@ Rejected: a neon-on-black developer portfolio (reads engineer-to-engineer, not t
 | Check green | `#8FBF8A` | The ✓ glyph in the hero and terminal only |
 
 Client palettes are data, not tokens. Each project in `data/projects.ts` declares its own `stage` and `ink`, used only inside its own case frame; `npm run contrast` fails the check if a pair drops below 4.5:1.
+
+### Light mode
+| Name | Hex | Role |
+|---|---|---|
+| Paper | `#F0EFEB` | Page canvas |
+| Sheet | `#FFFFFF` | Cards, steps, captions, contact panel |
+| Raised | `#E6E4DF` | Chips, swatch backs |
+| Line / Line strong | `#D9D7D1` / `#BDBAB3` | Hairlines, secondary-button borders |
+| Ink | `#1C1D20` | Headlines (14.7:1 on Paper) |
+| Body | `#3E4147` | Body text (8.9:1) |
+| Muted | `#62656C` | Captions, labels (5.1:1 on Paper, 4.6:1 on Raised) |
+| Deep brass | `#7D5E24` | Brass as text: highlighted word, labels, links (≥4.5:1 on every light surface) |
+| Brass fill | `#D1AD66` | Buttons, cursor, progress line: unchanged, with dark text on it (7.6:1) |
+
+Brass is split into two tokens: `--brass` for text and lines (deepened in light mode) and `--brass-fill` for surfaces (the same in both). The grid background tints toward its colours instead of adding light, so it works on both bases; in light mode the lines are ink at 6% and the glow is a deeper blue `#4A78E0`. Switching themes cross-fades colours for 0.35s. A saved choice is applied by an inline script before first paint, so there's no flash.
 
 ## Typography
 Built with the `init-typo` method: roles, not a font collection; a ratio, not hand-picked sizes.
